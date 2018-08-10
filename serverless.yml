@@ -1,0 +1,18 @@
+service: interpolation-bug
+
+provider:
+  stage: ${opt:stage, 'staging'}
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  hello:
+    handler: handler.hello
+
+custom:
+  foo:
+    production: 'shouldSee'
+
+environment:
+  doesNotWork: ${self:custom.foo.${opt:stage, self:provider.stage}, 'shouldNotSee'}
+  doesWork: ${self:custom.foo.${self:provider.stage}, 'shouldNotSee'}

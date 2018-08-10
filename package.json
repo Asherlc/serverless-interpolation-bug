@@ -1,0 +1,9 @@
+{
+  "name": "interpolation-bug",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless": "1.30.0"
+  }
+}
